@@ -1,0 +1,18 @@
+:host >>> .top{
+    margin-top: 25px; 
+}
+
+:host >>> .center{
+    text-align: center;
+}
+
+:host >>> .pos-direita{
+    float: right;
+    font-size: 16px;
+}
+
+:host >>> .scroll { 
+    height: 500px;
+    margin: auto; 
+    position: relative;
+}

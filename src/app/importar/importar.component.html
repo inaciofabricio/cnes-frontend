@@ -1,0 +1,46 @@
+<legend class="top">
+  Importar Dados
+  <div class="pos-direita">
+    <button class="btn btn-danger btn-xs" [routerLink]="['']">
+      Voltar
+    </button>
+  </div>
+</legend>
+
+<div class="row">
+  <div class="form-group col-md-12">
+    <h4 style="font-weight: bold;">Observações:</h4>
+    <h5><b>1ª - O arquivo deverá está no formato .csv (separado por vírgulas);</b></h5>    
+    <h5><b>2ª - O arquivo deverá está em UTF-8-BOM (para evitar problema com acentuação);</b></h5> 
+    <h5>
+      <b>3ª - O arquivo pode ser baixado na URL: <a href="http://dados.gov.br/dataset/cnes_ativo" target="_blank"> dados.gov.br</a></b>
+    </h5>    
+  </div>
+  <div class="form-group col-md-12">
+    <label for="arquivo">Arquivo CSV:</label>
+    <input id="file" type="file" class="form-control" (change)="fileChanged($event)"/>
+  </div>
+</div>
+<legend class="top">
+  Acompanhamento
+</legend>
+<div class="row">
+  <div class="col-md-2">
+    <b>Total de Inseridos:</b>
+  </div>
+  <div class="col-md-10">
+    {{ acompanhamento.totalInserido }}
+  </div>
+  <div class="col-md-2">
+    <b>Total de Atualizados:</b>
+  </div>
+  <div class="col-md-10">
+    {{ acompanhamento.totalAtualizado }}
+  </div>
+  <div class="col-md-2">
+    <b>Total Geral:</b>
+  </div>
+  <div class="col-md-10">
+    {{ acompanhamento.totalAndamento }}/{{ acompanhamento.totalGeral }}
+  </div>
+</div>

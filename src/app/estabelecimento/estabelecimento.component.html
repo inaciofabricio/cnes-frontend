@@ -1,0 +1,92 @@
+<legend class="top">
+  Estabelecimentos
+  <div class="pos-direita">
+    <button class="btn btn-danger btn-xs" [routerLink]="['']">
+      Voltar
+    </button>
+  </div>
+</legend>
+<div class="col-sm-12 col-md-3">
+  <legend style="font-size: 18px;">Filtros:</legend>
+    <div class="form-group">
+      <label>Tipos de Unidade:</label>
+      <select class="form-control" name="ds_tipo_unidade" id="ds_tipo_unidade" [(ngModel)]="filtros.ds_tipo_unidade" (change)="getAllUf()">
+        <option value="null">Todos</option>
+        <option *ngFor="let i of AllDsTipoUnidade"  [value]="i.ds_tipo_unidade">{{ i.ds_tipo_unidade }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Estado:</label>
+      <select class="form-control" name="uf" id="uf" [(ngModel)]="filtros.uf" (change)="getAllMunicipio()">
+        <option value="null">Todos</option>
+        <option *ngFor="let i of allUf"  [value]="i.uf">{{ i.nome }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Município:</label>
+      <select class="form-control" name="municipio" id="municipio" [(ngModel)]="filtros.municipio">
+        <option value="null">Todos</option>
+        <option *ngFor="let i of allMunicipio"  [value]="i.municipio">{{ i.municipio }}</option>
+      </select>
+    </div>
+  <br>
+  <button class="btn btn-primary btn-lg btn-block" (click)="filtrar()">Filtrar</button>
+</div>
+<div class="col-sm-12 col-md-9">
+  <legend style="font-size: 14px;">
+    <b>Tipo de Unidade:</b> [{{ (filtros.ds_tipo_unidade == null || filtros.ds_tipo_unidade == "null") ? '' : filtros.ds_tipo_unidade }}] - 
+    <b>UF:</b> [{{ (filtros.uf == null || filtros.uf == "null") ? '' : filtros.uf }}] - 
+    <b>Município:</b> [{{ (filtros.municipio == null || filtros.municipio == "null") ? '' : filtros.municipio }}]
+  </legend>
+  <div class="table-responsive scroll">
+    <table class="table table-bordered">
+      <thead>
+        <tr class="info">
+          <th class="center">CO_CNES</th>
+          <th class="center">CO_IBGE</th>
+          <th class="center">NO_FANTASIA</th>
+          <th class="center">DS_TIPO_UNIDADE</th>
+          <th class="center">TP_GESTAO</th>
+          <th class="center">NO_LOGRADOURO</th>
+          <th class="center">NU_ENDERECO</th>
+          <th class="center">NO_BAIRRO</th>
+          <th class="center">CO_CEP</th>
+          <th class="center">UF</th>
+          <th class="center">MUNICIPIO</th>
+          <th class="center">NU_TELEFONE</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="allEstabelecimento.length > 0" >
+        <tr *ngFor="let i of allEstabelecimento">
+          <td>{{ i.co_cnes }}</td>
+          <td>{{ i.co_ibge }}</td>
+          <td>{{ i.no_fantasia }}</td>
+          <td>{{ i.ds_tipo_unidade }}</td>
+          <td>{{ i.tp_gestao }}</td>
+          <td>{{ i.no_logradouro }}</td>
+          <td>{{ i.nu_endereco }}</td>
+          <td>{{ i.no_bairro }}</td>
+          <td>{{ i.co_cep }}</td>
+          <td>{{ i.uf }}</td>
+          <td>{{ i.municipio }}</td>
+          <td>{{ i.nu_telefone }}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="allEstabelecimento.length == 0" >
+        <tr>
+          <td colspan="11">...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <div class="center">
+    <button type="button" class="btn btn-primary" aria-label="Left Align" [disabled]="btnAnteriorBlock()" (click)="anterior()"> 
+      <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+    </button>
+    <span style="padding: 5px 15px 5px 15px; font-weight: bold; font-size: 18px;">{{ filtros.pagina }}<span *ngIf="geral.totalPaginas > 0" > ... {{ geral.totalPaginas }}</span></span>
+    <button type="button" class="btn btn-primary" aria-label="Right Align" [disabled]="btnProximoBlock()" (click)="proxima()">
+      <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>
