@@ -1,27 +1,12 @@
-# Cnes
+# Cnes - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
+Projeto Frontend em PHP para auxiliar na visualização dos dados do Cadastro Nacional de Estabelecimentos de Saúde (CNES) no Brasil.
 
-## Development server
+### 1º Passo 
+> Configurar o ambiente de backend que se encontrar no repositório https://github.com/inaciofabricio/cnes-backend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### 2º Passo
+> Após clone esse repositório, executar o comando `npm install`
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### 3º Passo 
+> Para executar o projeto, executar o comando `ng serve` e para acessar usar a url `http://localhost:4200/`
